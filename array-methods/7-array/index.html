@@ -11,43 +11,105 @@
     <script>
       // Go through todo.md before start solving.
       function countAllPeople() {
-        // your code goes here
-        console.log(got);
-      }
+        
+      return got.houses.reduce( function(people, cv) {
+            people = people + (cv.people.length);
+            return people;
+        }, 0);
+              
+      };
+      
+      //output: 33
+      //////////////////////////////////////////////////////
 
-      function peopleByHouses() {
-        // your code goes here
-      }
+      var final = {};
+      function peopleByHouse() {
+        got.houses.forEach(function (value) {
+           final[value.name]= (value.people.length);
+         });
+        return final;
+      };
+
+      //using reduce:
+
+      function peopleByHouse2() {
+        return  got.houses.reduce(function (acc, house) {
+        acc[house.name] = house.people.length;
+        return acc;
+      }, {});
+      };
+
+
+      
+   
+      ///////////
+
+      var everyName = [];
 
       function everyone() {
-        // your code goes here
-      }
-
+        got.houses.forEach( house => {
+          everyName = everyName.concat(house.people.map(one => one.name));
+        });
+        return everyName;
+      };
+      
       function nameWithS() {
-        // your code goes here
-      }
-
+        return got.houses.reduce((acc, house) => {
+          acc = acc.concat( 
+            house.people
+              .map(p => p.name)
+              .filter(n => n.toLowerCase().includes("s"))
+          );          
+          return acc;
+        }, []);
+      };
+      //
       function nameWithA() {
-        // your code goes here
-      }
+        return got.houses.reduce((acc, house) => {
+          acc = acc.concat( 
+            house.people
+              .map(p => p.name)
+              .filter(n => n.toLowerCase().includes("a"))
+          );          
+          return acc;
+        }, []);
+      };
 
       function surnameWithS() {
-        // your code goes here
-      }
+        return got.houses.reduce((acc, house) => {
+          acc = acc.concat( 
+            house.people
+              .map(p => p.name)
+              .filter(n => n.toLowerCase().split(' ')[1].startsWith('s'))
+          );          
+          return acc;
+        }, []);     
+      };
+      //
 
       function surnameWithA() {
-        // your code goes here
-      }
+        return got.houses.reduce((acc, house) => {
+          acc = acc.concat( 
+            house.people
+              .map(p => p.name)
+              .filter(n => n.toLowerCase().split(' ')[1].startsWith('a'))
+          );          
+          return acc;
+        }, []); 
+      };
 
       function peopleNameOfAllHouses() {
-        // your code goes here
-      }
+        return got.houses.reduce( (acc, house) => {        
+          acc[house.name] = (house.people.map(one => one.name))           
+          return acc;
+        }, {});
+      };
 
       // Testing your result after writing your function
       console.log(countAllPeople());
       // Output should be 33
 
-      console.log(peopleByHouses());
+      //console.log(peopleByHouses());
       // Output should be
       //{Arryns: 1, Baratheons: 6, Dothrakis: 1, Freys: 1, Greyjoys: 3, Lannisters: 4,Redwyne: 1,Starks: 8,Targaryens: 2,Tullys: 4,Tyrells: 2}
 

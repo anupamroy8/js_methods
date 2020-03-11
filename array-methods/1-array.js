@@ -35,14 +35,21 @@ console.log(strings.filter(stringIs))
 
 // Check if all the numbers in numbers array are divisible by three use array method (every)
 
-var result = [];
-var result = numbers.filter( a => (a%3 == 0));
-
-//Alternatively:
+var numbers = [1, 12, 4, 18, 9, 7, 11, 3, 101, 5, 6];
 function div3(value) {
   if(value%3 == 0)
-  return value;
-};
+    return value
+}
+numbers.every(div3)
+
+// var result = [];
+// var result = numbers.filter( a => (a%3 == 0));
+
+//Alternatively:
+// function div3(value) {
+//   if(value%3 == 0)
+//   return value;
+// };
 
 console.log(numbers.filter(div3));
 

@@ -31,6 +31,14 @@ var data = [
 
 // your code goes here
 
+data.reduce((acc, cv) => {
+  if(cv.type == "dog")
+    acc = acc + (cv.age*7)
+  return acc;
+}, 0)
+//105
+
+
 // Solution is 105
 
 // Write the same function using
@@ -39,3 +47,23 @@ var data = [
 // 3. reduce - to accumulate total age.
 
 // Solution 105
+
+data.filter(value => 
+  value.type == 'dog'
+);
+
+//
+
+data.map( function (value) {
+  if(value.type == 'dog')
+  return value.age*7;
+    else
+    return "Not a dog";
+});
+
+//
+data.reduce((acc, cv) => {
+  if(cv.type == "dog")
+    acc = acc + (cv.age*7)
+  return acc;
+}, 0)
